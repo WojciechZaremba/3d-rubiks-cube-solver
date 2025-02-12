@@ -57,7 +57,7 @@ function stickerMaterial(color = "magenta") {
             transparent: true,
             opacity: 1
         })
-    )g
+    )
 }
 const cubeStr = "ooooooooowwwwwwwwwrrrrrrrrryyyyyyyyybbbbbbbbbggggggggg"
 const planeGeometry = new Three.PlaneGeometry(.5, .5)

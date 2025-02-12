@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" translate="no">
+<head>
+    <title>prototyp kostki 3d v6</title>
+    <script type="importmap">
+        {
+          "imports": {
+            "three": "https://cdn.jsdelivr.net/npm/three@0.172.0/build/three.module.js",
+              "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.172.0/examples/jsm/"
+            }
+          }
+    </script>
+    <script type="module" src="/grafika/script.js"></script>
+    <script src="/algorytm/rotor.js"></script>
+    <script src="/algorytm/cube3x3class.js"></script>
+    <script src="/algorytm/indexes3x3.js"></script>
+    <script src="/algorytm/debug.js"></script>
+    <script src="/algorytm/solutionFinder.js"></script>
+    <script src="/algorytm/checkIfSolved.js"></script>
+    <script src="/algorytm/bds.js"></script>
+    <script src="/algorytm/sequences.js"></script>
+    <script src="/algorytm/nodes.js"></script>
+    <script src="/algorytm/turn.js"></script>
+    <script src="/algorytm/app.js"></script>
+    <script src="/algorytm/adapter.js"></script>
+    <style>
+      body {
+        margin: 0px;
+        position: relative;
+      }
+      .active {
+        font-weight: 900;
+        color: #d6bccb;
+      }
+      .button {
+        cursor: pointer;
+      }
+      .counter {
+        color: #d6dccb;
+        position: absolute;
+        font-size: 50px;
+        font-family: monospace;
+        font-weight: 900;
+        right: 50%;
+        top: 4%;
+        right: 50%;
+        transform: translate(50%)
+      }
+      .buttonsContainer {
+        color: #d6bccb44;
+        font-family: monospace;
+        font-size: 50px;
+        font-weight: 900;
+        position: absolute;
+        bottom: 10%;
+        width: 60%;
+        right: 50%;
+        transform: translate(50%);
+        display: flex;
+        justify-content: space-around;
+      }
+      .info {
+        position: absolute;
+        font-size: 20px;
+        top: 110%;
+      }
+      .hide {
+        display: none;
+      }
+      .dotsAnim:before {
+        content: "";
+        animation-name: dots;
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
+      }
+      @keyframes dots {
+        0% {content: " "}
+        25% {content: "."}
+        50% {content: ".."}
+        75% {content: "..."}
+      }
+      .bigButton {
+        position: absolute;
+        font-size: 60px;
+        color: #d6dccb;
+        position: absolute;
+        font-family: monospace;
+        font-weight: 900;
+        top: 14%;
+        transform: translate(50%);
+        right: 50%;
+        cursor: pointer;
+      }
+    </style>
+</head>
+<body>
+  <div id="turnsDisplay" class="counter">
+    <span id="turnsRemaining">0</span>
+    <span>/</span>
+    <span id="turnsAll">0</span>
+    <div id="info" class="info hide">
+      <span id="scrambling" class="hide">scrambling<span class="dotsAnim"></span></span>
+      <span id="searching" class="hide">searching<span class="dotsAnim"></span></span>
+      <span id="solving" class="hide">solving<span class="dotsAnim"></span></span>
+    </div>
+  </div>
+  <div id="bigButton" class="info bigButton">
+    <span id="solveBtn" class="hide">SOLVE</span>
+    <span id="scrambleBtn" class="">SCRAMBLE</span>
+  </div>
+  <div id="buttons" class="buttonsContainer">
+    <span id="speed1" class="button">></span>
+    <span id="speed2" class="button active">>></span>
+    <span id="speed3" class="button">>>></span>
+  </div>
+</body>
+</html>

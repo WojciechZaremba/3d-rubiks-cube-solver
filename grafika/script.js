@@ -53,7 +53,7 @@ function stickerMaterial(color = "magenta") {
     return (
         new Three.MeshBasicMaterial({
             color: colors[color],
-            map: new Three.TextureLoader().load('/grafika/sticker_blank.png'),
+            map: new Three.TextureLoader().load('grafika/sticker_blank.png'),
             transparent: true,
             opacity: 1
         })
